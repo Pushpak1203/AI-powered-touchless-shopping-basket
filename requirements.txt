@@ -1,0 +1,49 @@
+# Core Libraries
+numpy
+pandas
+scipy
+
+# AI/ML Libraries (Optimized for Pi)
+tensorflow-lite  # Lightweight version of TensorFlow for Pi
+torch  # PyTorch (ensure correct version for Pi)
+torchvision
+
+# Computer Vision & Object Detection
+opencv-python-headless
+ultralytics  # YOLO for object detection
+imutils  # Image processing utilities
+
+# Voice Recognition & Processing
+speechrecognition
+pydub  # Audio file processing
+pyttsx3  # Text-to-speech output
+
+# RFID & Hardware Integration
+RPi.GPIO  # Raspberry Pi GPIO support
+spidev  # SPI communication (for RFID module)
+mfrc522  # RFID module support
+pyserial  # Serial communication with hardware
+gpiozero  # Easier Raspberry Pi hardware control
+
+# Navigation & Sensors
+scipy
+adafruit-circuitpython-lidar  # LiDAR sensor support
+adafruit-circuitpython-hcsr04  # Ultrasonic sensor support
+
+# Web Backend (Flask for API)
+flask
+flask-cors
+flask-restful
+gunicorn  # For production deployment
+
+# Database Integration
+pymysql  # MySQL support
+firebase-admin  # Firebase integration
+
+# Payment API
+razorpay  # For integrating UPI-based payments
+
+# Miscellaneous Utilities
+requests
+matplotlib  # For debugging and visualization
+picamera  # Raspberry Pi Camera support
