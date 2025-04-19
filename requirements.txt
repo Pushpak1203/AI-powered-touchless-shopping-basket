@@ -1,4 +1,4 @@
-# Core Libraries
+# Core Libraries 
 numpy
 pandas
 scipy
@@ -26,7 +26,6 @@ pyserial  # Serial communication with hardware
 gpiozero  # Easier Raspberry Pi hardware control
 
 # Navigation & Sensors
-scipy
 adafruit-circuitpython-lidar  # LiDAR sensor support
 adafruit-circuitpython-hcsr04  # Ultrasonic sensor support
 
@@ -39,6 +38,8 @@ gunicorn  # For production deployment
 # Database Integration
 pymysql  # MySQL support
 firebase-admin  # Firebase integration
+flask-sqlalchemy  # SQLAlchemy ORM for Flask
+python-dotenv  # .env file support for config management
 
 # Payment API
 razorpay  # For integrating UPI-based payments
@@ -47,3 +48,6 @@ razorpay  # For integrating UPI-based payments
 requests
 matplotlib  # For debugging and visualization
 picamera  # Raspberry Pi Camera support
+
+# Development & Debugging (Optional)
+pytest  # For unit testing
