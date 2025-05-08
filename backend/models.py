@@ -1,8 +1,31 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-# Initialize database
+# Firebase Imports
+import os
+import firebase_admin
+from firebase_admin import credentials, db as firebase_db
+
+# Initialize database (MySQL via SQLAlchemy)
 db = SQLAlchemy()
+
+# ============ Firebase Setup ============
+firebase_config_path = os.getenv("FIREBASE_CONFIG_PATH")
+firebase_db_url = os.getenv("FIREBASE_DATABASE_URL")
+
+if firebase_config_path and firebase_db_url:
+    try:
+        cred = credentials.Certificate(firebase_config_path)
+        firebase_admin.initialize_app(cred, {
+            'databaseURL': firebase_db_url
+        })
+        print("✅ Firebase initialized successfully")
+    except Exception as e:
+        print(f"⚠️ Firebase initialization error: {e}")
+# ========================================
+
+
+# ===================== SQLAlchemy Models =====================
 
 # User Model (Authentication via RFID & Voice)
 class User(db.Model):
@@ -18,6 +41,7 @@ class User(db.Model):
     cart_items = db.relationship('Cart', back_populates='user', cascade='all, delete-orphan')
     transactions = db.relationship('Transaction', back_populates='user', cascade='all, delete-orphan')
 
+
 # Product Model (Product Details)
 class Product(db.Model):
     __tablename__ = 'products'
@@ -31,6 +55,7 @@ class Product(db.Model):
     # Relationship
     cart_products = db.relationship('Cart', back_populates='product', cascade='all, delete-orphan')
 
+
 # Cart Model (Items in the Shopping Basket)
 class Cart(db.Model):
     __tablename__ = 'cart'
@@ -43,6 +68,7 @@ class Cart(db.Model):
     # Relationships
     user = db.relationship('User', back_populates='cart_items')
     product = db.relationship('Product', back_populates='cart_products')
+
 
 # Transactions Model (Billing & Payment)
 class Transaction(db.Model):
